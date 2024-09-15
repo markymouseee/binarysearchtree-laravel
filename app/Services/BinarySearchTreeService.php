@@ -30,9 +30,7 @@ class BinarySearchTreeService{
                 return $newNode;
             }
         }else{
-            // Handle the case where $value is equal to $node->value
-            // For example, you might want to update the node or ignore the insertion
-            return $node; // or throw an exception, or handle it as per your requirement
+            return $node;
         }
     }
 
