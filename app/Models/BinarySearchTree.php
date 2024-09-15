@@ -9,8 +9,10 @@ class BinarySearchTree extends Model
 {
     use HasFactory;
 
+    protected $table = "binary_search_trees";
+
     protected $fillable = [
-        'value', 
+        'value',
         'left_child_id',
         'right_child_id'
     ];

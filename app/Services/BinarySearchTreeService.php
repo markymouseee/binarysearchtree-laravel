@@ -6,12 +6,12 @@ use \App\Models\BinarySearchTree;
 
 class BinarySearchTreeService{
 
-    public function insert($value, $rood_id = null){
-        if(!$rood_id){
+    public function insert($value, $root_id = null){
+        if(!$root_id){
             return BinarySearchTree::create(['value' => $value]);
         }
 
-        $node = BinarySearchTree::findOrFail($rood_id);
+        $node = BinarySearchTree::findOrFail($root_id);
 
         if($value < $node->value){
             if($value->left_child_id){
@@ -43,7 +43,7 @@ class BinarySearchTreeService{
         }elseif($value > $node->value && $node->right_child_id){
             return $this->search($value, $node->right_child_id);
         }
-        
+
         return null;
     }
 }
