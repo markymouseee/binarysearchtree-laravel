@@ -14,14 +14,14 @@ class BinarySearchTreeService{
         $node = BinarySearchTree::findOrFail($root_id);
 
         if($value < $node->value){
-            if($value->left_child_id){
+            if($node->left_child_id){
                 return $this->insert($value, $node->left_child_id);
             }else{
                 $newNode = BinarySearchTree::create(['value' => $value]);
                 $node->update(['left_child_id' => $newNode->id]);
                 return $newNode;
             }
-        }else{
+        }elseif($value > $node->value){
             if($node->right_child_id){
                 return $this->insert($value, $node->right_child_id);
             }else{
@@ -29,8 +29,13 @@ class BinarySearchTreeService{
                 $node->update(['right_child_id' => $newNode->id]);
                 return $newNode;
             }
+        }else{
+            // Handle the case where $value is equal to $node->value
+            // For example, you might want to update the node or ignore the insertion
+            return $node; // or throw an exception, or handle it as per your requirement
         }
     }
+
 
     public function search($value, $rootId){
 

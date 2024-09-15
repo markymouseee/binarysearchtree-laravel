@@ -8,6 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('Stylesheets/insert.css') }}">
     <title>Binary Search Tree</title>
 </head>
 <body class="d-flex justify-content-center align-items-center" style="height: inherit;">
@@ -27,12 +29,17 @@
                 </div>
 
                 <button class="btn btn-primary w-100 mt-2 mb-3" type="submit">Insert</button>
+                <div class=" d-flex justify-content-center">
+                    <a class="search-btn text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">Search</a>
+                </div>
                 <div class="d-flex justify-content-center">
                     <span id="results" class="position-absolute"></span>
                 </div>
             </section>
         </div>
     </form>
+
+    @extends('components.search')
 
     <script>
         $('#insertForm').submit(function(event) {

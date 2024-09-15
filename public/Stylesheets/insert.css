@@ -1,0 +1,10 @@
+.search-btn{
+    color: #ffff;
+    font-size: 20px;
+}
+
+.search-btn:hover{
+    color: #dddddd;
+    border-bottom: 1px solid #ffffff;
+
+}

@@ -8,3 +8,5 @@ Route::get('/bst', function () {
 })->name('bst.view');
 
 Route::post('/bst/insert', [BinarySearchTreeController::class, 'insert'])->name('bst.insert');
+
+Route::get('/bst/search', [BinarySearchTreeController::class, 'search'])->name('bst.search');
