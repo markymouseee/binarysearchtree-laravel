@@ -1,5 +1,5 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <h1 class="modal-title fs-5 text-center mt-3" id="exampleModalLabel">Search Value</h1>
         <div class="modal-body">
@@ -14,7 +14,7 @@
                     <label for="floatingInput">Root ID</label>
                 </div>
 
-                <button class="btn btn-primary w-100"><i class="fa fa-search"></i> Search</button>
+                <button class="btn btn-secondary w-100"><i class="fa fa-search"></i> Search</button>
             </form>
 
             <span id="result" class="mt-3"></span>
@@ -28,7 +28,7 @@
             e.preventDefault();
 
             $.ajax({
-                url: '{{ route('bst.search') }}',
+                url: '/api/bst/search',
                 type: 'GET',
                 data: $(this).serialize(),
                 success: function(response){

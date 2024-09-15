@@ -13,31 +13,37 @@
     <title>Binary Search Tree</title>
 </head>
 <body class="d-flex justify-content-center align-items-center" style="height: inherit;">
-    <form id="insertForm" style="width: 50rem"">
-        @csrf
-        <div class="container-fluid bg-secondary d-flex justify-content-center align-items-center" style="height: 400px; border-radius: 20px;">
-            <section class="w-100">
-                <h1 class="fs-4 text-center mb-3 text-light" style="margin-top: -1rem;">Binary Search Tree</h1>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="floatingInput" placeholder="" id="value" name="value" required>
-                    <label for="floatingInput">Value</label>
-                </div>
 
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="floatingInput" placeholder="" id="root_id" name="root_id">
-                    <label for="floatingInput">Root child id (Optional)</label>
-                </div>
+        <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 275px; border-radius: 20px; width: 30rem;">
+            <section class="w-100 bg-secondary d-flex justify-content-center align-items-center" style="border-radius: 20px">
+                <div style="height: 365px; width: 27rem;">
+                    <h1 class="fs-4 text-center mb-3 text-light" style="margin-top: 1rem;">Binary Search Tree</h1>
+                    <form id="insertForm">
+                        @csrf
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floatingInput" placeholder="" id="value" name="value" required>
+                        <label for="floatingInput">Value</label>
+                    </div>
 
-                <button class="btn btn-primary w-100 mt-2 mb-3" type="submit">Insert</button>
-                <div class=" d-flex justify-content-center">
-                    <a class="search-btn text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">Search</a>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <span id="results" class="position-absolute"></span>
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floatingInput" placeholder="" id="root_id" name="root_id">
+                        <label for="floatingInput">Root child id (Optional)</label>
+                    </div>
+
+                    <button class="btn btn-primary w-100 mt-2 mb-3" type="submit"><i class="fa-solid fa-arrow-right-to-bracket"></i> Insert</button>
+
+                    <div class=" d-flex justify-content-center">
+                        <a class="search-btn text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-search"></i> Search Value</a>
+                    </div>
+
+                    </form>
+                    <div>
+                        <span id="results"  style="top: 650px"></span>
+                    </div>
                 </div>
             </section>
         </div>
-    </form>
+
 
     @extends('components.search')
 
@@ -45,14 +51,14 @@
         $('#insertForm').submit(function(event) {
             event.preventDefault();
             $.ajax({
-                url: '{{ route('bst.insert') }}',
+                url: '/api/bst/insert',
                 type: 'POST',
                 data: $(this).serialize(),
                 success: function(response) {
                     $('#results').html('<div class="alert alert-success text-center">Inserted: ' + JSON.stringify(response) + '</div>');
                 },
                 error: function(xhr) {
-                    $('#results').html('<div class="alert alert-danger text-center">Error inserting value.</div>');
+                    $('#results').html('<div class="alert alert-danger text-center w-100">Error inserting value.</div>');
                 }
             });
         });
