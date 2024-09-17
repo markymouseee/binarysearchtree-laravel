@@ -14,7 +14,7 @@
                     <label for="floatingInput">Root ID</label>
                 </div>
 
-                <button class="btn btn-secondary w-100"><i class="fa fa-search"></i> Search</button>
+                <button class="btn btn-primary w-100"><i class="fa fa-search"></i> Search</button>
             </form>
 
             <span id="result" class="mt-3"></span>

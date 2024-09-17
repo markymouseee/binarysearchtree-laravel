@@ -44,7 +44,6 @@
             </section>
         </div>
 
-
     @extends('components.search')
 
     <script>
